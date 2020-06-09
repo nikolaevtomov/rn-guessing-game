@@ -1,7 +1,9 @@
 import React from 'react';
-import {View, Text, StyleSheet, Button, Image} from 'react-native';
+import {View, Text, StyleSheet} from 'react-native';
 import Fonts from '../utils/fonst';
-import Colors from '../utils/colours';
+import CustomButton from '../components/custom-button';
+import Avatar from '../components/avatar';
+import {COLOURS} from '../utils/colours';
 
 interface Props {
   roundsNumber: number;
@@ -16,21 +18,25 @@ const OverScreen: React.FunctionComponent<Props> = ({
 }) => {
   return (
     <View style={styles.screen}>
-      <Image
-        style={styles.image}
-        resizeMode="contain"
-        source={require('../../assets/images/game-over.jpeg')}
-      />
-      <Text style={{...styles.text, ...Fonts.brandRegular}}>
-        The Game is Over!
-      </Text>
-      <Text style={{...styles.text, ...Fonts.brandRegular}}>
-        Number of rounds: {roundsNumber}
-      </Text>
-      <Text style={{...styles.text, ...Fonts.brandRegular}}>
-        Number was: {userNumber}
-      </Text>
-      <Button color={Colors.brand} title="NEW GAME" onPress={onRestart} />
+      <Avatar source={require('../../assets/images/game-over.jpeg')} />
+
+      <View style={styles.result}>
+        <Text style={{...styles.text, ...Fonts.brandRegular}}>
+          The Game is Over ...!
+        </Text>
+
+        <Text style={{...styles.text, ...Fonts.brandRegular}}>
+          Number of rounds: ........... {roundsNumber}
+        </Text>
+
+        <Text style={{...styles.text, ...Fonts.brandRegular}}>
+          Number was: ...... {userNumber}
+        </Text>
+
+        <View style={styles.buttons}>
+          <CustomButton title="NEW GAME" onPress={onRestart} />
+        </View>
+      </View>
     </View>
   );
 };
@@ -38,14 +44,22 @@ const OverScreen: React.FunctionComponent<Props> = ({
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
-    justifyContent: 'center',
+    paddingVertical: 10,
+    justifyContent: 'space-around',
     alignItems: 'center',
-  },
-  image: {
-    width: 300,
+    backgroundColor: COLOURS.white,
   },
   text: {
     fontSize: 18,
+  },
+  buttons: {
+    marginVertical: 18,
+  },
+  result: {
+    height: 300,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 10,
   },
 });
 

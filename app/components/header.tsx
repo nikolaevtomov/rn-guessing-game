@@ -22,6 +22,7 @@ const styles = StyleSheet.create({
     backgroundColor: COLOURS.brand,
     alignItems: 'center',
     justifyContent: 'center',
+    marginBottom: 20,
   },
   title: {
     color: COLOURS.dark,

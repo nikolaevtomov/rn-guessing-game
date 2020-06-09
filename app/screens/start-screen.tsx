@@ -6,14 +6,15 @@ import {
   TouchableWithoutFeedback,
   Keyboard,
   Alert,
-  Button,
 } from 'react-native';
 
-import Card from '../components/card';
+import {COLOURS} from '../utils/colours';
+// import Card from '../components/card';
 import Input from '../components/input';
 import NumberContainer from '../components/number-container';
-import Colors from '../utils/colours';
 import Fonts from '../utils/fonst';
+import CustomButton from '../components/custom-button';
+import Avatar from '../components/avatar';
 
 interface Props {
   onStartGame: (n: number | null) => void;
@@ -55,55 +56,50 @@ const StartScreen: React.FunctionComponent<Props> = ({onStartGame}) => {
         Keyboard.dismiss();
       }}>
       <View style={styles.screen}>
-        <Text style={{...styles.title, ...Fonts.brandRegular}}>
-          Start a New Game!
-        </Text>
-
-        <Card style={styles.inputContainer}>
-          <Text style={Fonts.brandRegular}>Select a Number</Text>
-
-          <Input
-            style={styles.input}
-            blurOnSubmit
-            autoCapitalize="none"
-            autoCorrect={false}
-            keyboardType="number-pad"
-            maxLength={2}
-            onChangeText={numberInputHandler}
-            value={enteredValue}
-          />
-
-          <View style={styles.buttonContainer}>
-            <View style={styles.button}>
-              <Button
-                title="Reset"
-                onPress={resetInputHandler}
-                color={Colors.ternary}
-              />
-            </View>
-
-            <View style={styles.button}>
-              <Button
-                title="Confirm"
-                onPress={confirmInputHandler}
-                color={Colors.secondary}
-              />
-            </View>
-          </View>
-        </Card>
+        <Avatar source={require('../../assets/images/start-game.png')} />
 
         {confirmed && (
-          <Card style={styles.summaryContainer}>
+          <View style={styles.result}>
             <Text style={Fonts.brandRegular}>You selected</Text>
 
             <NumberContainer>{selectedNumber}</NumberContainer>
 
-            <Button
-              color={Colors.brand}
+            <CustomButton
               title="START GAME"
               onPress={() => onStartGame(selectedNumber)}
             />
-          </Card>
+          </View>
+        )}
+
+        {!confirmed && (
+          <View style={styles.result}>
+            <Text style={Fonts.brandRegular}>Select a Number</Text>
+
+            <Input
+              style={styles.input}
+              blurOnSubmit
+              autoCapitalize="none"
+              autoCorrect={false}
+              keyboardType="number-pad"
+              maxLength={2}
+              onChangeText={numberInputHandler}
+              value={enteredValue}
+            />
+
+            <View style={styles.buttonContainer}>
+              <CustomButton
+                title="Reset"
+                onPress={resetInputHandler}
+                style={{backgroundColor: COLOURS.ternary}}
+              />
+
+              <CustomButton
+                title="Confirm"
+                onPress={confirmInputHandler}
+                style={{backgroundColor: COLOURS.secondary}}
+              />
+            </View>
+          </View>
         )}
       </View>
     </TouchableWithoutFeedback>
@@ -113,34 +109,27 @@ const StartScreen: React.FunctionComponent<Props> = ({onStartGame}) => {
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
+    paddingVertical: 10,
+    justifyContent: 'space-around',
     alignItems: 'center',
-  },
-  title: {
-    fontSize: 20,
-    marginVertical: 10,
-  },
-  inputContainer: {
-    width: 300,
-    maxWidth: '80%',
-    alignItems: 'center',
+    backgroundColor: COLOURS.white,
   },
   buttonContainer: {
     flexDirection: 'row',
-    width: '100%',
-    justifyContent: 'space-between',
-    paddingHorizontal: 15,
-  },
-  button: {
-    width: 100,
+    justifyContent: 'space-around',
+    width: 300,
+    maxWidth: '80%',
   },
   input: {
     width: 50,
     textAlign: 'center',
     fontSize: 22,
   },
-  summaryContainer: {
-    marginTop: 20,
+  result: {
+    height: 300,
+    justifyContent: 'center',
     alignItems: 'center',
+    marginBottom: 10,
   },
 });
 

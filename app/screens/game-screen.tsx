@@ -1,11 +1,12 @@
 import React, {useState, useRef, useEffect} from 'react';
-import {View, Text, StyleSheet, Button, Alert, Image} from 'react-native';
+import {View, Text, StyleSheet, Alert} from 'react-native';
 
 import NumberContainer from '../components/number-container';
-import Card from '../components/card';
 import {generateRandomBetween} from '../utils/helpers';
-import Colors from '../utils/colours';
 import Fonts from '../utils/fonst';
+import CustomButton from '../components/custom-button';
+import Avatar from '../components/avatar';
+import {COLOURS} from '../utils/colours';
 
 interface Props {
   userChoice: number;
@@ -61,31 +62,27 @@ const GameScreen: React.FunctionComponent<Props> = ({
 
   return (
     <View style={styles.screen}>
-      <View style={styles.imageWrapper}>
-        <Image
-          style={styles.image}
-          resizeMode="contain"
-          source={require('../../assets/images/start-game.png')}
-        />
+      <Avatar source={require('../../assets/images/game-forest.png')} />
+
+      <View style={styles.result}>
+        <Text style={Fonts.brandRegular}>Opponent's Guess</Text>
+
+        <NumberContainer>{currentGuess}</NumberContainer>
+
+        <View style={styles.buttonContainer}>
+          <CustomButton
+            style={{backgroundColor: COLOURS.ternary}}
+            title="LOWER"
+            onPress={() => nextGuessHandler(Direction.LOWER)}
+          />
+
+          <CustomButton
+            style={{backgroundColor: COLOURS.secondary}}
+            title="GREATER"
+            onPress={() => nextGuessHandler(Direction.GREATER)}
+          />
+        </View>
       </View>
-
-      <Text style={Fonts.brandRegular}>Opponent's Guess</Text>
-
-      <NumberContainer>{currentGuess}</NumberContainer>
-
-      <Card style={styles.buttonContainer}>
-        <Button
-          color={Colors.ternary}
-          title="LOWER"
-          onPress={() => nextGuessHandler(Direction.LOWER)}
-        />
-
-        <Button
-          color={Colors.secondary}
-          title="GREATER"
-          onPress={() => nextGuessHandler(Direction.GREATER)}
-        />
-      </Card>
     </View>
   );
 };
@@ -93,28 +90,22 @@ const GameScreen: React.FunctionComponent<Props> = ({
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
-    padding: 10,
+    paddingVertical: 10,
+    justifyContent: 'space-around',
     alignItems: 'center',
+    backgroundColor: COLOURS.white,
   },
   buttonContainer: {
     flexDirection: 'row',
     justifyContent: 'space-around',
-    marginTop: 20,
     width: 300,
     maxWidth: '80%',
   },
-  imageWrapper: {
-    width: 300,
+  result: {
     height: 300,
-    borderRadius: 300,
-    overflow: 'hidden',
     justifyContent: 'center',
     alignItems: 'center',
-    marginVertical: 20,
-  },
-  image: {
-    width: 300,
-    borderRadius: 300,
+    marginBottom: 10,
   },
 });
 

@@ -16,13 +16,13 @@ const NumberContainer: React.FunctionComponent<Props> = ({children}) => {
 
 const styles = StyleSheet.create({
   container: {
+    justifyContent: 'center',
+    alignItems: 'center',
     borderWidth: 2,
-    borderColor: COLOURS.dark,
-    marginVertical: 10,
+    marginVertical: 24,
     borderRadius: 10,
     padding: 10,
-    alignItems: 'center',
-    justifyContent: 'center',
+    borderColor: COLOURS.dark,
   },
   number: {
     fontSize: 22,
