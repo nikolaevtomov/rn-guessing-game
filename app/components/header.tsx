@@ -1,6 +1,7 @@
 import React from 'react';
 import {View, StyleSheet, Text} from 'react-native';
 import {COLOURS} from '../utils/colours';
+import Fonts from '../utils/fonst';
 
 interface Props {
   title: string;
@@ -9,7 +10,7 @@ interface Props {
 const Header: React.FunctionComponent<Props> = ({title}) => {
   return (
     <View style={styles.header}>
-      <Text style={styles.title}>{title}</Text>
+      <Text style={{...styles.title, ...Fonts.brandRegular}}>{title}</Text>
     </View>
   );
 };

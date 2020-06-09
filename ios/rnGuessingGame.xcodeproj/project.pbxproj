@@ -20,6 +20,7 @@
 		4F1AB90ADDDBA7E78EBC524E /* libPods-rnGuessingGame.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F5853253F71BF750470B6AD4 /* libPods-rnGuessingGame.a */; };
 		91E97BF00952859EE276B175 /* libPods-rnGuessingGame-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D47F17C58A0EC7479978E988 /* libPods-rnGuessingGame-tvOS.a */; };
 		AA9D0553DA70F341D772F5D2 /* libPods-rnGuessingGame-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 40FB196FEEABF2D207DD86DF /* libPods-rnGuessingGame-tvOSTests.a */; };
+		BE9587CC43A44116B3D627C1 /* KaushanScript-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 89B386E8E3E64FC6A546390F /* KaushanScript-Regular.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 		F5853253F71BF750470B6AD4 /* libPods-rnGuessingGame.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-rnGuessingGame.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		89B386E8E3E64FC6A546390F /* KaushanScript-Regular.otf */ = {isa = PBXFileReference; name = "KaushanScript-Regular.otf"; path = "../assets/fonts/KaushanScript-Regular.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +167,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				97F3AC585F5021343EB26BFE /* Pods */,
+				40E805AA875D4CA28B1BD257 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -197,6 +200,15 @@
 			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
+		};
+		40E805AA875D4CA28B1BD257 /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				89B386E8E3E64FC6A546390F /* KaushanScript-Regular.otf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
@@ -340,6 +352,7 @@
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
+				BE9587CC43A44116B3D627C1 /* KaushanScript-Regular.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -13,6 +13,7 @@ import Card from '../components/card';
 import Input from '../components/input';
 import NumberContainer from '../components/number-container';
 import Colors from '../utils/colours';
+import Fonts from '../utils/fonst';
 
 interface Props {
   onStartGame: (n: number | null) => void;
@@ -54,10 +55,12 @@ const StartScreen: React.FunctionComponent<Props> = ({onStartGame}) => {
         Keyboard.dismiss();
       }}>
       <View style={styles.screen}>
-        <Text style={styles.title}>Start a New Game!</Text>
+        <Text style={{...styles.title, ...Fonts.brandRegular}}>
+          Start a New Game!
+        </Text>
 
         <Card style={styles.inputContainer}>
-          <Text>Select a Number</Text>
+          <Text style={Fonts.brandRegular}>Select a Number</Text>
 
           <Input
             style={styles.input}
