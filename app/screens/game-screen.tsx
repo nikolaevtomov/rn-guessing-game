@@ -4,6 +4,8 @@ import {View, Text, StyleSheet, Button, Alert} from 'react-native';
 import NumberContainer from '../components/number-container';
 import Card from '../components/card';
 import {generateRandomBetween} from '../utils/helpers';
+import Colors from '../utils/colours';
+import Fonts from '../utils/fonst';
 
 interface Props {
   userChoice: number;
@@ -59,17 +61,19 @@ const GameScreen: React.FunctionComponent<Props> = ({
 
   return (
     <View style={styles.screen}>
-      <Text>Opponent's Guess</Text>
+      <Text style={Fonts.brandRegular}>Opponent's Guess</Text>
 
       <NumberContainer>{currentGuess}</NumberContainer>
 
       <Card style={styles.buttonContainer}>
         <Button
+          color={Colors.ternary}
           title="LOWER"
           onPress={() => nextGuessHandler(Direction.LOWER)}
         />
 
         <Button
+          color={Colors.secondary}
           title="GREATER"
           onPress={() => nextGuessHandler(Direction.GREATER)}
         />

@@ -1,5 +1,7 @@
 import React from 'react';
-import {View, Text, StyleSheet, Button} from 'react-native';
+import {View, Text, StyleSheet, Button, Image} from 'react-native';
+import Fonts from '../utils/fonst';
+import Colors from '../utils/colours';
 
 interface Props {
   roundsNumber: number;
@@ -14,10 +16,21 @@ const OverScreen: React.FunctionComponent<Props> = ({
 }) => {
   return (
     <View style={styles.screen}>
-      <Text>The Game is Over!</Text>
-      <Text>Number of rounds: {roundsNumber}</Text>
-      <Text>Number was: {userNumber}</Text>
-      <Button title="NEW GAME" onPress={onRestart} />
+      <Image
+        style={styles.image}
+        resizeMode="contain"
+        source={require('../../assets/images/game-over.jpeg')}
+      />
+      <Text style={{...styles.text, ...Fonts.brandRegular}}>
+        The Game is Over!
+      </Text>
+      <Text style={{...styles.text, ...Fonts.brandRegular}}>
+        Number of rounds: {roundsNumber}
+      </Text>
+      <Text style={{...styles.text, ...Fonts.brandRegular}}>
+        Number was: {userNumber}
+      </Text>
+      <Button color={Colors.brand} title="NEW GAME" onPress={onRestart} />
     </View>
   );
 };
@@ -27,6 +40,12 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  image: {
+    width: 300,
+  },
+  text: {
+    fontSize: 18,
   },
 });
 

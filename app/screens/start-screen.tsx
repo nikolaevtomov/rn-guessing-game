@@ -86,7 +86,7 @@ const StartScreen: React.FunctionComponent<Props> = ({onStartGame}) => {
               <Button
                 title="Confirm"
                 onPress={confirmInputHandler}
-                color={Colors.brand}
+                color={Colors.secondary}
               />
             </View>
           </View>
@@ -94,11 +94,12 @@ const StartScreen: React.FunctionComponent<Props> = ({onStartGame}) => {
 
         {confirmed && (
           <Card style={styles.summaryContainer}>
-            <Text>You selected</Text>
+            <Text style={Fonts.brandRegular}>You selected</Text>
 
             <NumberContainer>{selectedNumber}</NumberContainer>
 
             <Button
+              color={Colors.brand}
               title="START GAME"
               onPress={() => onStartGame(selectedNumber)}
             />
@@ -136,6 +137,7 @@ const styles = StyleSheet.create({
   input: {
     width: 50,
     textAlign: 'center',
+    fontSize: 22,
   },
   summaryContainer: {
     marginTop: 20,
