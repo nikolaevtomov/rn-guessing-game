@@ -2,19 +2,18 @@ import React, {useState} from 'react';
 import {
   View,
   Text,
-  StyleSheet,
   TouchableWithoutFeedback,
   Keyboard,
   Alert,
 } from 'react-native';
 
 import {COLOURS} from '../utils/colours';
-// import Card from '../components/card';
 import Input from '../components/input';
 import NumberContainer from '../components/number-container';
-import Fonts from '../utils/fonst';
+import Fonts from '../utils/fonts';
 import CustomButton from '../components/custom-button';
 import Avatar from '../components/avatar';
+import {STYLES} from '../utils/styles';
 
 interface Props {
   onStartGame: (n: number | null) => void;
@@ -55,11 +54,11 @@ const StartScreen: React.FunctionComponent<Props> = ({onStartGame}) => {
       onPress={() => {
         Keyboard.dismiss();
       }}>
-      <View style={styles.screen}>
+      <View style={STYLES.screen}>
         <Avatar source={require('../../assets/images/start-game.png')} />
 
         {confirmed && (
-          <View style={styles.result}>
+          <View style={STYLES.result}>
             <Text style={Fonts.brandRegular}>You selected</Text>
 
             <NumberContainer>{selectedNumber}</NumberContainer>
@@ -72,11 +71,11 @@ const StartScreen: React.FunctionComponent<Props> = ({onStartGame}) => {
         )}
 
         {!confirmed && (
-          <View style={styles.result}>
+          <View style={STYLES.result}>
             <Text style={Fonts.brandRegular}>Select a Number</Text>
 
             <Input
-              style={styles.input}
+              style={STYLES.input}
               blurOnSubmit
               autoCapitalize="none"
               autoCorrect={false}
@@ -86,7 +85,7 @@ const StartScreen: React.FunctionComponent<Props> = ({onStartGame}) => {
               value={enteredValue}
             />
 
-            <View style={styles.buttonContainer}>
+            <View style={STYLES.buttonGroup}>
               <CustomButton
                 title="Reset"
                 onPress={resetInputHandler}
@@ -105,32 +104,5 @@ const StartScreen: React.FunctionComponent<Props> = ({onStartGame}) => {
     </TouchableWithoutFeedback>
   );
 };
-
-const styles = StyleSheet.create({
-  screen: {
-    flex: 1,
-    paddingVertical: 10,
-    justifyContent: 'space-around',
-    alignItems: 'center',
-    backgroundColor: COLOURS.white,
-  },
-  buttonContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    width: 300,
-    maxWidth: '80%',
-  },
-  input: {
-    width: 50,
-    textAlign: 'center',
-    fontSize: 22,
-  },
-  result: {
-    height: 300,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginBottom: 10,
-  },
-});
 
 export default StartScreen;

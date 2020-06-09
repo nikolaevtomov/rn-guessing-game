@@ -1,9 +1,9 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
-import Fonts from '../utils/fonst';
+import Fonts from '../utils/fonts';
 import CustomButton from '../components/custom-button';
 import Avatar from '../components/avatar';
-import {COLOURS} from '../utils/colours';
+import {STYLES} from '../utils/styles';
 
 interface Props {
   roundsNumber: number;
@@ -17,10 +17,10 @@ const OverScreen: React.FunctionComponent<Props> = ({
   onRestart,
 }) => {
   return (
-    <View style={styles.screen}>
+    <View style={STYLES.screen}>
       <Avatar source={require('../../assets/images/game-over.jpeg')} />
 
-      <View style={styles.result}>
+      <View style={STYLES.result}>
         <Text style={{...styles.text, ...Fonts.brandRegular}}>
           The Game is Over ...!
         </Text>
@@ -42,24 +42,11 @@ const OverScreen: React.FunctionComponent<Props> = ({
 };
 
 const styles = StyleSheet.create({
-  screen: {
-    flex: 1,
-    paddingVertical: 10,
-    justifyContent: 'space-around',
-    alignItems: 'center',
-    backgroundColor: COLOURS.white,
-  },
   text: {
     fontSize: 18,
   },
   buttons: {
     marginVertical: 18,
-  },
-  result: {
-    height: 300,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginBottom: 10,
   },
 });
 

@@ -15,13 +15,13 @@ const Avatar: React.FunctionComponent<Props> = ({source}) => {
 
 const styles = StyleSheet.create({
   imageWrapper: {
-    width: 300,
-    height: 300,
-    borderRadius: 300,
-    overflow: 'hidden',
     justifyContent: 'center',
     alignItems: 'center',
+    width: 300,
+    height: 300,
     marginVertical: 20,
+    borderRadius: 300,
+    overflow: 'hidden',
   },
   image: {
     width: 300,

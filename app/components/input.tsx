@@ -13,9 +13,9 @@ const Input: React.FunctionComponent<Props> = (props) => {
 const styles = StyleSheet.create({
   input: {
     height: 50,
-    borderBottomColor: COLOURS.grey,
-    borderBottomWidth: 1,
     marginVertical: 10,
+    borderBottomWidth: 1,
+    borderBottomColor: COLOURS.grey,
   },
 });
 

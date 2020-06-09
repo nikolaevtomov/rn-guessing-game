@@ -1,7 +1,7 @@
 import React from 'react';
 import {StyleSheet, View, Text, TouchableOpacity} from 'react-native';
-import Colors from '../utils/colours';
-import Fonts from '../utils/fonst';
+import {COLOURS} from '../utils/colours';
+import Fonts from '../utils/fonts';
 
 interface Props {
   title: string;
@@ -25,15 +25,15 @@ const CustomButton: React.FunctionComponent<Props> = ({
 
 const styles = StyleSheet.create({
   screen: {
-    paddingVertical: 12,
-    paddingHorizontal: 24,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: Colors.brand,
+    paddingHorizontal: 24,
+    paddingVertical: 12,
+    backgroundColor: COLOURS.brand,
     borderRadius: 24,
   },
   title: {
-    color: Colors.white,
+    color: COLOURS.white,
   },
 });
 

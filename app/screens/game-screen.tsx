@@ -1,12 +1,13 @@
 import React, {useState, useRef, useEffect} from 'react';
-import {View, Text, StyleSheet, Alert} from 'react-native';
+import {View, Text, Alert} from 'react-native';
 
 import NumberContainer from '../components/number-container';
 import {generateRandomBetween} from '../utils/helpers';
-import Fonts from '../utils/fonst';
+import Fonts from '../utils/fonts';
 import CustomButton from '../components/custom-button';
 import Avatar from '../components/avatar';
 import {COLOURS} from '../utils/colours';
+import {STYLES} from '../utils/styles';
 
 interface Props {
   userChoice: number;
@@ -61,15 +62,15 @@ const GameScreen: React.FunctionComponent<Props> = ({
   };
 
   return (
-    <View style={styles.screen}>
+    <View style={STYLES.screen}>
       <Avatar source={require('../../assets/images/game-forest.png')} />
 
-      <View style={styles.result}>
+      <View style={STYLES.result}>
         <Text style={Fonts.brandRegular}>Opponent's Guess</Text>
 
         <NumberContainer>{currentGuess}</NumberContainer>
 
-        <View style={styles.buttonContainer}>
+        <View style={STYLES.buttonGroup}>
           <CustomButton
             style={{backgroundColor: COLOURS.ternary}}
             title="LOWER"
@@ -86,27 +87,5 @@ const GameScreen: React.FunctionComponent<Props> = ({
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  screen: {
-    flex: 1,
-    paddingVertical: 10,
-    justifyContent: 'space-around',
-    alignItems: 'center',
-    backgroundColor: COLOURS.white,
-  },
-  buttonContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    width: 300,
-    maxWidth: '80%',
-  },
-  result: {
-    height: 300,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginBottom: 10,
-  },
-});
 
 export default GameScreen;
