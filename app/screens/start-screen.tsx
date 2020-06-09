@@ -7,6 +7,7 @@ import {
   TouchableWithoutFeedback,
   Keyboard,
   Alert,
+  Image,
 } from 'react-native';
 
 import Card from '../components/card';
@@ -55,6 +56,14 @@ const StartScreen: React.FunctionComponent<Props> = ({onStartGame}) => {
         Keyboard.dismiss();
       }}>
       <View style={styles.screen}>
+        <View style={styles.imageWrapper}>
+          <Image
+            style={styles.image}
+            resizeMode="contain"
+            source={require('../../assets/images/start-game.png')}
+          />
+        </View>
+
         <Text style={{...styles.title, ...Fonts.brandRegular}}>
           Start a New Game!
         </Text>
@@ -113,7 +122,6 @@ const StartScreen: React.FunctionComponent<Props> = ({onStartGame}) => {
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
-    padding: 10,
     alignItems: 'center',
   },
   title: {
@@ -142,6 +150,19 @@ const styles = StyleSheet.create({
   summaryContainer: {
     marginTop: 20,
     alignItems: 'center',
+  },
+  imageWrapper: {
+    width: 300,
+    height: 300,
+    borderRadius: 300,
+    overflow: 'hidden',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginVertical: 20,
+  },
+  image: {
+    width: 300,
+    borderRadius: 300,
   },
 });
 
