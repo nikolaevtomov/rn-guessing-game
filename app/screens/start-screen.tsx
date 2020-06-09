@@ -3,11 +3,11 @@ import {
   View,
   Text,
   StyleSheet,
-  Button,
   TouchableWithoutFeedback,
   Keyboard,
   Alert,
 } from 'react-native';
+import {Button} from 'react-native-elements';
 
 import Card from '../components/card';
 import Input from '../components/input';
@@ -78,7 +78,7 @@ const StartScreen: React.FunctionComponent<Props> = ({onStartGame}) => {
               <Button
                 title="Reset"
                 onPress={resetInputHandler}
-                color={Colors.ternary}
+                buttonStyle={{backgroundColor: Colors.ternary}}
               />
             </View>
 
@@ -86,7 +86,7 @@ const StartScreen: React.FunctionComponent<Props> = ({onStartGame}) => {
               <Button
                 title="Confirm"
                 onPress={confirmInputHandler}
-                color={Colors.secondary}
+                buttonStyle={{backgroundColor: Colors.secondary}}
               />
             </View>
           </View>
@@ -99,7 +99,7 @@ const StartScreen: React.FunctionComponent<Props> = ({onStartGame}) => {
             <NumberContainer>{selectedNumber}</NumberContainer>
 
             <Button
-              color={Colors.brand}
+              buttonStyle={{backgroundColor: Colors.brand}}
               title="START GAME"
               onPress={() => onStartGame(selectedNumber)}
             />
