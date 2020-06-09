@@ -6,8 +6,8 @@ import {
   TouchableWithoutFeedback,
   Keyboard,
   Alert,
+  Button,
 } from 'react-native';
-import {Button} from 'react-native-elements';
 
 import Card from '../components/card';
 import Input from '../components/input';
@@ -78,7 +78,7 @@ const StartScreen: React.FunctionComponent<Props> = ({onStartGame}) => {
               <Button
                 title="Reset"
                 onPress={resetInputHandler}
-                buttonStyle={{backgroundColor: Colors.ternary}}
+                color={Colors.ternary}
               />
             </View>
 
@@ -86,7 +86,7 @@ const StartScreen: React.FunctionComponent<Props> = ({onStartGame}) => {
               <Button
                 title="Confirm"
                 onPress={confirmInputHandler}
-                buttonStyle={{backgroundColor: Colors.secondary}}
+                color={Colors.secondary}
               />
             </View>
           </View>
@@ -99,7 +99,7 @@ const StartScreen: React.FunctionComponent<Props> = ({onStartGame}) => {
             <NumberContainer>{selectedNumber}</NumberContainer>
 
             <Button
-              buttonStyle={{backgroundColor: Colors.brand}}
+              color={Colors.brand}
               title="START GAME"
               onPress={() => onStartGame(selectedNumber)}
             />
