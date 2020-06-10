@@ -15,7 +15,7 @@ const CustomButton: React.FunctionComponent<Props> = ({
   style,
 }) => {
   return (
-    <TouchableOpacity onPress={onPress}>
+    <TouchableOpacity activeOpacity={0.8} onPress={onPress}>
       <View style={{...styles.screen, ...style}}>
         <Text style={{...styles.title, ...Fonts.brandRegular}}>{title}</Text>
       </View>
