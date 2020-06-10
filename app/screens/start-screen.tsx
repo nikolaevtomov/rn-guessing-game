@@ -6,6 +6,7 @@ import {
   Keyboard,
   Alert,
 } from 'react-native';
+import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 
 import {COLOURS} from '../utils/colours';
 import Input from '../components/input';
@@ -55,56 +56,58 @@ const StartScreen: React.FunctionComponent<Props> = ({onStartGame}) => {
       onPress={() => {
         Keyboard.dismiss();
       }}>
-      <View style={STYLES.screen}>
-        <Avatar
-          dimension={setAvatarDimensions}
-          source={require('../../assets/images/start-game.png')}
-        />
+      <KeyboardAwareScrollView>
+        <View style={STYLES.screen}>
+          <Avatar
+            dimension={setAvatarDimensions}
+            source={require('../../assets/images/start-game.png')}
+          />
 
-        {confirmed && (
-          <View style={STYLES.result}>
-            <Text style={Fonts.brandRegular}>You selected</Text>
+          {confirmed && (
+            <View style={STYLES.result}>
+              <Text style={Fonts.brandRegular}>You selected</Text>
 
-            <NumberContainer>{selectedNumber}</NumberContainer>
-
-            <CustomButton
-              title="START GAME"
-              onPress={() => onStartGame(selectedNumber)}
-            />
-          </View>
-        )}
-
-        {!confirmed && (
-          <View style={STYLES.result}>
-            <Text style={Fonts.brandRegular}>Select a Number</Text>
-
-            <Input
-              style={STYLES.input}
-              blurOnSubmit
-              autoCapitalize="none"
-              autoCorrect={false}
-              keyboardType="number-pad"
-              maxLength={2}
-              onChangeText={numberInputHandler}
-              value={enteredValue}
-            />
-
-            <View style={STYLES.buttonGroup}>
-              <CustomButton
-                title="Reset"
-                onPress={resetInputHandler}
-                style={{backgroundColor: COLOURS.ternary}}
-              />
+              <NumberContainer>{selectedNumber}</NumberContainer>
 
               <CustomButton
-                title="Confirm"
-                onPress={confirmInputHandler}
-                style={{backgroundColor: COLOURS.secondary}}
+                title="START GAME"
+                onPress={() => onStartGame(selectedNumber)}
               />
             </View>
-          </View>
-        )}
-      </View>
+          )}
+
+          {!confirmed && (
+            <View style={STYLES.result}>
+              <Text style={Fonts.brandRegular}>Select a Number</Text>
+
+              <Input
+                style={STYLES.input}
+                blurOnSubmit
+                autoCapitalize="none"
+                autoCorrect={false}
+                keyboardType="number-pad"
+                maxLength={2}
+                onChangeText={numberInputHandler}
+                value={enteredValue}
+              />
+
+              <View style={STYLES.buttonGroup}>
+                <CustomButton
+                  title="Reset"
+                  onPress={resetInputHandler}
+                  style={{backgroundColor: COLOURS.ternary}}
+                />
+
+                <CustomButton
+                  title="Confirm"
+                  onPress={confirmInputHandler}
+                  style={{backgroundColor: COLOURS.secondary}}
+                />
+              </View>
+            </View>
+          )}
+        </View>
+      </KeyboardAwareScrollView>
     </TouchableWithoutFeedback>
   );
 };
