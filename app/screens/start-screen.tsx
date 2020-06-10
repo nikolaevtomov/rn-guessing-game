@@ -14,6 +14,7 @@ import Fonts from '../utils/fonts';
 import CustomButton from '../components/custom-button';
 import Avatar from '../components/avatar';
 import {STYLES} from '../utils/styles';
+import {setAvatarDimensions} from '../utils/helpers';
 
 interface Props {
   onStartGame: (n: number | null) => void;
@@ -55,7 +56,10 @@ const StartScreen: React.FunctionComponent<Props> = ({onStartGame}) => {
         Keyboard.dismiss();
       }}>
       <View style={STYLES.screen}>
-        <Avatar source={require('../../assets/images/start-game.png')} />
+        <Avatar
+          dimension={setAvatarDimensions}
+          source={require('../../assets/images/start-game.png')}
+        />
 
         {confirmed && (
           <View style={STYLES.result}>

@@ -8,6 +8,7 @@ import CustomButton from '../components/custom-button';
 import Avatar from '../components/avatar';
 import {COLOURS} from '../utils/colours';
 import {STYLES} from '../utils/styles';
+import {setAvatarDimensions} from '../utils/helpers';
 
 interface Props {
   userChoice: number;
@@ -63,7 +64,10 @@ const GameScreen: React.FunctionComponent<Props> = ({
 
   return (
     <View style={STYLES.screen}>
-      <Avatar source={require('../../assets/images/game-forest.png')} />
+      <Avatar
+        dimension={setAvatarDimensions}
+        source={require('../../assets/images/game-forest.png')}
+      />
 
       <View style={STYLES.result}>
         <Text style={Fonts.brandRegular}>Opponent's Guess</Text>

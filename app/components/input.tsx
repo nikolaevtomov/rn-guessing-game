@@ -1,5 +1,6 @@
 import React from 'react';
 import {StyleSheet, TextInput, TextInputProps} from 'react-native';
+
 import {COLOURS} from '../utils/colours';
 
 interface Props extends Partial<TextInputProps> {
